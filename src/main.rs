@@ -1,7 +1,11 @@
 use clap::Parser;
 
+mod core;
+use crate::core::chip8::Chip8;
+
 fn main() {
     let args = Args::parse();
+    let emulator = Chip8::new();
 }
 
 // TODO: Convert to some config file in the future
