@@ -1,5 +1,5 @@
-use super::cpu::cpu::Cpu;
 use super::bus::Bus;
+use super::cpu::cpu::Cpu;
 
 pub struct Chip8 {
     processor: Cpu,
