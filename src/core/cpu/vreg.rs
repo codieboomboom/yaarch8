@@ -1,4 +1,4 @@
-use super::{error::CpuError};
+use super::error::CpuError;
 
 pub struct Vregisters {
     regs: [u8; 16],
@@ -6,9 +6,7 @@ pub struct Vregisters {
 
 impl Vregisters {
     pub fn new() -> Self {
-        Self {
-            regs: [0x0; 16]
-        }
+        Self { regs: [0x0; 16] }
     }
 
     pub fn read(&self, offset: usize) -> Result<u8, CpuError> {
@@ -18,12 +16,12 @@ impl Vregisters {
         }
     }
 
-    pub fn write(&mut self, offset: usize, value: u8 ) -> Result<(), CpuError> {
+    pub fn write(&mut self, offset: usize, value: u8) -> Result<(), CpuError> {
         match offset {
             0..=15 => {
                 self.regs[offset] = value;
                 Ok(())
-            },
+            }
             _ => Err(CpuError::InvalidRegisterError),
         }
     }
@@ -31,8 +29,8 @@ impl Vregisters {
 
 #[cfg(test)]
 mod tests {
-    use super::Vregisters;
     use super::CpuError;
+    use super::Vregisters;
 
     #[test]
     fn test_invalid_offset_register_read() {
@@ -60,6 +58,6 @@ mod tests {
         let mut mock_reg = Vregisters::new();
         let result = mock_reg.write(10, 1);
         assert_eq!(result, Ok(()));
-        assert_eq!(mock_reg.regs[10],1);
+        assert_eq!(mock_reg.regs[10], 1);
     }
 }

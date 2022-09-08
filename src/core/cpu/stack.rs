@@ -8,12 +8,12 @@ pub struct Stack {
 impl Stack {
     pub fn new() -> Self {
         Self {
-            contents: [0x0;16],
+            contents: [0x0; 16],
             sp: 0x0,
         }
     }
 
-    pub fn push(&mut self, value: u16) -> Result<(),CpuError> {
+    pub fn push(&mut self, value: u16) -> Result<(), CpuError> {
         match self.sp {
             15.. => Err(CpuError::StackOverflowError),
             _ => {
@@ -42,8 +42,8 @@ impl Stack {
 
 #[cfg(test)]
 mod tests {
-    use super::Stack;
     use super::CpuError;
+    use super::Stack;
 
     #[test]
     fn test_push_cause_overflow_of_stack() {
