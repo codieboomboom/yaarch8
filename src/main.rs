@@ -1,11 +1,15 @@
 use clap::Parser;
 
 mod core;
-use crate::core::chip8::Chip8;
+mod emulator;
+
+use crate::core::rom::Rom;
+use crate::emulator::emulator::Emulator;
 
 fn main() {
     let args = Args::parse();
-    let emulator = Chip8::new();
+    let rom: Rom = Rom::new(&args.rom_file_path).unwrap();
+    let emulator = Emulator::new(rom);
 }
 
 // TODO: Convert to some config file in the future
