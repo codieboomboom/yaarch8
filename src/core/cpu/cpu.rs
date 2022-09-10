@@ -13,7 +13,7 @@ impl Cpu {
     pub fn new() -> Self {
         Self {
             registers: Vregisters::new(),
-            pc: 0x0,
+            pc: 0x200,
             i: 0x0,
             stack: Stack::new(),
         }

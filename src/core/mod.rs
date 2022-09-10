@@ -1,5 +1,9 @@
 pub mod chip8;
 
 // use by emulator
-mod cpu;
-mod bus;
+pub mod bus;
+pub mod cpu;
+pub mod display;
+pub mod keypad;
+pub mod memory;
+pub mod rom;
