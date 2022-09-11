@@ -1,4 +1,4 @@
-use super::super::bus::Bus;
+use super::super::devices::DevicesController;
 use super::stack::Stack;
 use super::vreg::Vregisters;
 
@@ -19,5 +19,5 @@ impl Cpu {
         }
     }
 
-    pub fn step(&mut self, peripherals: &mut Bus) {}
+    pub fn step(&mut self, peripherals: &mut DevicesController) {}
 }
