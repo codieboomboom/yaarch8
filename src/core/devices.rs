@@ -19,5 +19,12 @@ impl DevicesController {
         }
     }
 
-    pub fn read_bytes(&self, start: usize, offset: usize) -> Vec<u8> {}
+    //TODO: Do this but in one line?
+    pub fn read_bytes(&self, start_address: usize, size: usize) -> Vec<u8> {
+        let mut result: Vec<u8> = Vec::new();
+        for idx in 0..size {
+            result.push(self.memoryController.read(start_address+idx));
+        }
+        result
+    }
 }
